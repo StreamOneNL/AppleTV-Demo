@@ -16,3 +16,6 @@
 [submodule "Carthage/Checkouts/JFCommon"]
 	path = Carthage/Checkouts/JFCommon
 	url = https://github.com/nickygerritsen/JFCommon.git
+[submodule "Carthage/Checkouts/AlamofireImage"]
+	path = Carthage/Checkouts/AlamofireImage
+	url = https://github.com/Alamofire/AlamofireImage.git

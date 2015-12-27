@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,19 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        Alamofire.Request.addAcceptableImageContentTypes(["image/jpg"])
+
         do {
             try ApiManager.initialize()
         } catch (let e) {
             fatalError("Error initializing API manager: \(e)")
-        }
-
-        do {
-            let request = try ApiManager.newRequest(command: "api", action: "info")
-            request.execute { response in
-                print(response)
-            }
-        } catch (let e) {
-            print(e)
         }
 
         return true

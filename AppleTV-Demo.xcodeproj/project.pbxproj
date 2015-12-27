@@ -7,61 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		800E83B41C3030760004D22F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8048A7801C302DB6009B5F89 /* AVFoundation.framework */; };
+		800E83B51C3030760004D22F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8048A7811C302DB6009B5F89 /* AVKit.framework */; };
+		800E83BF1C30397C0004D22F /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 800E83B11C30306A0004D22F /* AlamofireImage.framework */; };
+		800E83C01C30397C0004D22F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5D1C30063700C7705F /* Alamofire.framework */; };
+		800E83C11C30397C0004D22F /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5E1C30063700C7705F /* Argo.framework */; };
+		800E83C21C30397C0004D22F /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5F1C30063700C7705F /* CommonCrypto.framework */; };
+		800E83C31C30397C0004D22F /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A601C30063700C7705F /* Crypto.framework */; };
+		800E83C41C30397C0004D22F /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A611C30063700C7705F /* Curry.framework */; };
+		800E83C51C30397C0004D22F /* JFCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A621C30063700C7705F /* JFCommon.framework */; };
+		800E83C61C30397C0004D22F /* StreamOneSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A631C30063700C7705F /* StreamOneSDK.framework */; };
+		80B744FB1C3045FC00443D13 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B744FA1C3045FC00443D13 /* MainTabBarController.swift */; };
+		80B744FD1C30496300443D13 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B744FC1C30496300443D13 /* ItemsViewController.swift */; };
+		80B745031C304DAC00443D13 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B745021C304DAC00443D13 /* R.generated.swift */; };
 		80CE3A291C3004C900C7705F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A281C3004C900C7705F /* AppDelegate.swift */; };
-		80CE3A2B1C3004C900C7705F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A2A1C3004C900C7705F /* FirstViewController.swift */; };
-		80CE3A2D1C3004C900C7705F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A2C1C3004C900C7705F /* SecondViewController.swift */; };
+		80CE3A2B1C3004C900C7705F /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A2A1C3004C900C7705F /* LiveViewController.swift */; };
 		80CE3A301C3004C900C7705F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80CE3A2E1C3004C900C7705F /* Main.storyboard */; };
 		80CE3A321C3004CA00C7705F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80CE3A311C3004CA00C7705F /* Assets.xcassets */; };
-		80CE3A641C30063700C7705F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5D1C30063700C7705F /* Alamofire.framework */; };
-		80CE3A651C30063700C7705F /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5E1C30063700C7705F /* Argo.framework */; };
-		80CE3A661C30063700C7705F /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5F1C30063700C7705F /* CommonCrypto.framework */; };
-		80CE3A671C30063700C7705F /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A601C30063700C7705F /* Crypto.framework */; };
-		80CE3A681C30063700C7705F /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A611C30063700C7705F /* Curry.framework */; };
-		80CE3A691C30063700C7705F /* JFCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A621C30063700C7705F /* JFCommon.framework */; };
-		80CE3A6A1C30063700C7705F /* StreamOneSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A631C30063700C7705F /* StreamOneSDK.framework */; };
-		80CE3A6B1C30063C00C7705F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5D1C30063700C7705F /* Alamofire.framework */; };
-		80CE3A6C1C30063C00C7705F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5D1C30063700C7705F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80CE3A6D1C30063C00C7705F /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5E1C30063700C7705F /* Argo.framework */; };
-		80CE3A6E1C30063C00C7705F /* Argo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5E1C30063700C7705F /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80CE3A6F1C30063C00C7705F /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5F1C30063700C7705F /* CommonCrypto.framework */; };
-		80CE3A701C30063C00C7705F /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5F1C30063700C7705F /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80CE3A711C30063C00C7705F /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A601C30063700C7705F /* Crypto.framework */; };
-		80CE3A721C30063C00C7705F /* Crypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A601C30063700C7705F /* Crypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80CE3A731C30063C00C7705F /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A611C30063700C7705F /* Curry.framework */; };
-		80CE3A741C30063C00C7705F /* Curry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A611C30063700C7705F /* Curry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80CE3A751C30063C00C7705F /* JFCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A621C30063700C7705F /* JFCommon.framework */; };
-		80CE3A761C30063C00C7705F /* JFCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A621C30063700C7705F /* JFCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80CE3A771C30063C00C7705F /* StreamOneSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A631C30063700C7705F /* StreamOneSDK.framework */; };
-		80CE3A781C30063C00C7705F /* StreamOneSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A631C30063700C7705F /* StreamOneSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		80CE3A7C1C3006E200C7705F /* ApiSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80CE3A7B1C3006E200C7705F /* ApiSettings.plist */; };
 		80CE3A7E1C300A0B00C7705F /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A7D1C300A0B00C7705F /* ApiManager.swift */; };
+		80CE3A821C301F2D00C7705F /* LiveStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A811C301F2D00C7705F /* LiveStream.swift */; };
+		80CE3A841C301FAA00C7705F /* LiveStreamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A831C301FAA00C7705F /* LiveStreamType.swift */; };
+		80CE3A871C30221200C7705F /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A861C30221200C7705F /* UIViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		80CE3A5C1C30062B00C7705F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				80CE3A781C30063C00C7705F /* StreamOneSDK.framework in Embed Frameworks */,
-				80CE3A6C1C30063C00C7705F /* Alamofire.framework in Embed Frameworks */,
-				80CE3A721C30063C00C7705F /* Crypto.framework in Embed Frameworks */,
-				80CE3A701C30063C00C7705F /* CommonCrypto.framework in Embed Frameworks */,
-				80CE3A761C30063C00C7705F /* JFCommon.framework in Embed Frameworks */,
-				80CE3A6E1C30063C00C7705F /* Argo.framework in Embed Frameworks */,
-				80CE3A741C30063C00C7705F /* Curry.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		800E83B11C30306A0004D22F /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/tvOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		800E83BE1C30361D0004D22F /* AppleTV-Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AppleTV-Demo.entitlements"; sourceTree = "<group>"; };
+		8048A7801C302DB6009B5F89 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8048A7811C302DB6009B5F89 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		80B744FA1C3045FC00443D13 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		80B744FC1C30496300443D13 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		80B745021C304DAC00443D13 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		80CE3A251C3004C900C7705F /* AppleTV-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppleTV-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80CE3A281C3004C900C7705F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		80CE3A2A1C3004C900C7705F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		80CE3A2C1C3004C900C7705F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		80CE3A2A1C3004C900C7705F /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		80CE3A2F1C3004C900C7705F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80CE3A311C3004CA00C7705F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80CE3A331C3004CA00C7705F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +55,9 @@
 		80CE3A7B1C3006E200C7705F /* ApiSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiSettings.plist; sourceTree = "<group>"; };
 		80CE3A7D1C300A0B00C7705F /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		80CE3A7F1C30139300C7705F /* ApiSettings.dist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiSettings.dist.plist; sourceTree = "<group>"; };
+		80CE3A811C301F2D00C7705F /* LiveStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveStream.swift; sourceTree = "<group>"; };
+		80CE3A831C301FAA00C7705F /* LiveStreamType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveStreamType.swift; sourceTree = "<group>"; };
+		80CE3A861C30221200C7705F /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,26 +65,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80CE3A771C30063C00C7705F /* StreamOneSDK.framework in Frameworks */,
-				80CE3A641C30063700C7705F /* Alamofire.framework in Frameworks */,
-				80CE3A651C30063700C7705F /* Argo.framework in Frameworks */,
-				80CE3A6D1C30063C00C7705F /* Argo.framework in Frameworks */,
-				80CE3A751C30063C00C7705F /* JFCommon.framework in Frameworks */,
-				80CE3A711C30063C00C7705F /* Crypto.framework in Frameworks */,
-				80CE3A661C30063700C7705F /* CommonCrypto.framework in Frameworks */,
-				80CE3A671C30063700C7705F /* Crypto.framework in Frameworks */,
-				80CE3A681C30063700C7705F /* Curry.framework in Frameworks */,
-				80CE3A691C30063700C7705F /* JFCommon.framework in Frameworks */,
-				80CE3A731C30063C00C7705F /* Curry.framework in Frameworks */,
-				80CE3A6A1C30063700C7705F /* StreamOneSDK.framework in Frameworks */,
-				80CE3A6F1C30063C00C7705F /* CommonCrypto.framework in Frameworks */,
-				80CE3A6B1C30063C00C7705F /* Alamofire.framework in Frameworks */,
+				800E83B41C3030760004D22F /* AVFoundation.framework in Frameworks */,
+				800E83B51C3030760004D22F /* AVKit.framework in Frameworks */,
+				800E83BF1C30397C0004D22F /* AlamofireImage.framework in Frameworks */,
+				800E83C01C30397C0004D22F /* Alamofire.framework in Frameworks */,
+				800E83C11C30397C0004D22F /* Argo.framework in Frameworks */,
+				800E83C21C30397C0004D22F /* CommonCrypto.framework in Frameworks */,
+				800E83C31C30397C0004D22F /* Crypto.framework in Frameworks */,
+				800E83C41C30397C0004D22F /* Curry.framework in Frameworks */,
+				800E83C51C30397C0004D22F /* JFCommon.framework in Frameworks */,
+				800E83C61C30397C0004D22F /* StreamOneSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		800E83C81C303AAA0004D22F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				800E83BE1C30361D0004D22F /* AppleTV-Demo.entitlements */,
+				80CE3A331C3004CA00C7705F /* Info.plist */,
+				80CE3A7B1C3006E200C7705F /* ApiSettings.plist */,
+				80CE3A7F1C30139300C7705F /* ApiSettings.dist.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		80CE3A1C1C3004C900C7705F = {
 			isa = PBXGroup;
 			children = (
@@ -122,15 +112,17 @@
 		80CE3A271C3004C900C7705F /* AppleTV-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				800E83C81C303AAA0004D22F /* Resources */,
+				80CE3A801C301F2500C7705F /* Objects */,
 				80CE3A281C3004C900C7705F /* AppDelegate.swift */,
-				80CE3A2A1C3004C900C7705F /* FirstViewController.swift */,
-				80CE3A2C1C3004C900C7705F /* SecondViewController.swift */,
+				80CE3A2A1C3004C900C7705F /* LiveViewController.swift */,
 				80CE3A2E1C3004C900C7705F /* Main.storyboard */,
 				80CE3A311C3004CA00C7705F /* Assets.xcassets */,
-				80CE3A331C3004CA00C7705F /* Info.plist */,
-				80CE3A7B1C3006E200C7705F /* ApiSettings.plist */,
-				80CE3A7F1C30139300C7705F /* ApiSettings.dist.plist */,
 				80CE3A7D1C300A0B00C7705F /* ApiManager.swift */,
+				80CE3A861C30221200C7705F /* UIViewControllerExtensions.swift */,
+				80B744FA1C3045FC00443D13 /* MainTabBarController.swift */,
+				80B744FC1C30496300443D13 /* ItemsViewController.swift */,
+				80B745021C304DAC00443D13 /* R.generated.swift */,
 			);
 			path = "AppleTV-Demo";
 			sourceTree = "<group>";
@@ -138,6 +130,9 @@
 		80CE3A791C30064000C7705F /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				800E83B11C30306A0004D22F /* AlamofireImage.framework */,
+				8048A7801C302DB6009B5F89 /* AVFoundation.framework */,
+				8048A7811C302DB6009B5F89 /* AVKit.framework */,
 				80CE3A5D1C30063700C7705F /* Alamofire.framework */,
 				80CE3A5E1C30063700C7705F /* Argo.framework */,
 				80CE3A5F1C30063700C7705F /* CommonCrypto.framework */,
@@ -149,6 +144,15 @@
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
 		};
+		80CE3A801C301F2500C7705F /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				80CE3A811C301F2D00C7705F /* LiveStream.swift */,
+				80CE3A831C301FAA00C7705F /* LiveStreamType.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,10 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80CE3A361C3004CA00C7705F /* Build configuration list for PBXNativeTarget "AppleTV-Demo" */;
 			buildPhases = (
+				80B744FF1C304A0600443D13 /* R.swift */,
 				80CE3A211C3004C900C7705F /* Sources */,
 				80CE3A221C3004C900C7705F /* Frameworks */,
 				80CE3A231C3004C900C7705F /* Resources */,
-				80CE3A5C1C30062B00C7705F /* Embed Frameworks */,
+				800E83C71C3039830004D22F /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -182,6 +187,12 @@
 				TargetAttributes = {
 					80CE3A241C3004C900C7705F = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5XF9UV87FC;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -216,15 +227,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		800E83C71C3039830004D22F /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/tvOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Argo.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Curry.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Crypto.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/CommonCrypto.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/AlamofireImage.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/JFCommon.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/StreamOneSDK.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		80B744FF1C304A0600443D13 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SRCROOT/AppleTV-Demo/rswift\" \"$SRCROOT/AppleTV-Demo\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		80CE3A211C3004C900C7705F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80CE3A2D1C3004C900C7705F /* SecondViewController.swift in Sources */,
 				80CE3A291C3004C900C7705F /* AppDelegate.swift in Sources */,
+				80CE3A821C301F2D00C7705F /* LiveStream.swift in Sources */,
+				80B745031C304DAC00443D13 /* R.generated.swift in Sources */,
+				80CE3A841C301FAA00C7705F /* LiveStreamType.swift in Sources */,
+				80B744FB1C3045FC00443D13 /* MainTabBarController.swift in Sources */,
 				80CE3A7E1C300A0B00C7705F /* ApiManager.swift in Sources */,
-				80CE3A2B1C3004C900C7705F /* FirstViewController.swift in Sources */,
+				80B744FD1C30496300443D13 /* ItemsViewController.swift in Sources */,
+				80CE3A2B1C3004C900C7705F /* LiveViewController.swift in Sources */,
+				80CE3A871C30221200C7705F /* UIViewControllerExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +383,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "AppleTV-Demo/AppleTV-Demo.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
@@ -336,6 +395,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.StreamOne.AppleTV-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
@@ -345,6 +406,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "AppleTV-Demo/AppleTV-Demo.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
@@ -353,6 +418,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.StreamOne.AppleTV-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
@@ -376,6 +442,7 @@
 				80CE3A381C3004CA00C7705F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

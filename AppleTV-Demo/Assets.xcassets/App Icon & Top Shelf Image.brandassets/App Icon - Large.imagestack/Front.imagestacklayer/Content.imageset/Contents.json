@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "tv",
+      "filename" : "logofornt.png",
       "scale" : "1x"
     }
   ],

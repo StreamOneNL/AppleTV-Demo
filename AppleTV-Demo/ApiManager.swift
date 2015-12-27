@@ -11,32 +11,15 @@ import StreamOneSDK
 import Argo
 import Curry
 
-private struct ApiSettings {
-    let apiUrl: String
-    let useApplicationAuth: Bool
-    let applicationId: String?
-    let applicationPSK: String?
-    let userId: String?
-    let userPSK: String?
-    let account: String
-}
+/**
+    Singleton class used to communicate with the StreamOne SDK
 
-extension ApiSettings : Decodable {
-    static func decode(dict: JSON) -> Decoded<ApiSettings> {
-        let i = curry(ApiSettings.init)
-            <^> dict <| "apiUrl"
-            <*> dict <| "useApplicationAuth"
-            <*> dict <|? "applicationId"
-            <*> dict <|? "applicationPSK"
-
-        return i
-            <*> dict <|? "userId"
-            <*> dict <|? "userPSK"
-            <*> dict <| "account"
-    }
-}
-
+    Always call ApiManager.initialize() in `AppDelegate.application(_:didFinishLaunchingWithOptions:)
+*/
 class ApiManager {
+    /**
+        Errors the API manager can return
+     */
     enum Error: ErrorType {
         case NoSuchFile
         case CanNotParsePlist
@@ -45,9 +28,36 @@ class ApiManager {
         case NotInitialized
     }
 
+    /**
+        Struct to hold all settings parsed from the PList file
+    */
+    private struct Settings {
+        let apiUrl: String
+        let useApplicationAuth: Bool
+        let applicationId: String?
+        let applicationPSK: String?
+        let userId: String?
+        let userPSK: String?
+        let account: String
+        let livestreams: [String]
+        let gemiststreams: [String]
+    }
+
+    /**
+        The shared API manager instance
+    */
     private static let sharedManager = ApiManager()
+
+    private var settings: Settings?
+
+    /**
+        The actor used for this manager. Contains a value as soon as `initialize` has been called
+    */
     private var actor: Actor?
 
+    /**
+        Initialize the API manager
+    */
     static func initialize() throws {
         let bundle = NSBundle(forClass: self)
         guard let plist = bundle.pathForResource("ApiSettings", ofType: "plist") else {
@@ -58,10 +68,12 @@ class ApiManager {
             throw ApiManager.Error.CanNotParsePlist
         }
 
-        let apiSettings: Decoded<ApiSettings> = decode(plistDict)
+        let apiSettings: Decoded<ApiManager.Settings> = decode(plistDict)
         guard let settings = apiSettings.value else {
             throw ApiManager.Error.InvalidPlist(apiSettings.error!)
         }
+
+        sharedManager.settings = settings
 
         let authType: AuthenticationType
         if settings.useApplicationAuth {
@@ -85,11 +97,30 @@ class ApiManager {
         sharedManager.actor = actor
     }
 
+    /**
+        Create a new request for the actor for this API manager
+    */
     static func newRequest(command command: String, action: String) throws -> Request {
         guard let actor = sharedManager.actor else {
             throw ApiManager.Error.NotInitialized
         }
         return try actor.newRequest(command: command, action: action)
+    }
+
+    static func livestreams() throws -> [String] {
+        guard let settings = sharedManager.settings else {
+            throw ApiManager.Error.NotInitialized
+        }
+
+        return settings.livestreams
+    }
+
+    static func gemiststreams() throws -> [String] {
+        guard let settings = sharedManager.settings else {
+            throw ApiManager.Error.NotInitialized
+        }
+
+        return settings.gemiststreams
     }
 }
 
@@ -102,5 +133,22 @@ extension ApiManager.Error : CustomDebugStringConvertible {
         case .MissingSettings(let message): return "Missing values: \(message)"
         case .NotInitialized: return "The API manager is not initialized yet! Call `ApiManager.initialize()` first"
         }
+    }
+}
+
+extension ApiManager.Settings : Decodable {
+    static func decode(dict: JSON) -> Decoded<ApiManager.Settings> {
+        let i = curry(ApiManager.Settings.init)
+            <^> dict <| "apiUrl"
+            <*> dict <| "useApplicationAuth"
+            <*> dict <|? "applicationId"
+            <*> dict <|? "applicationPSK"
+
+        return i
+            <*> dict <|? "userId"
+            <*> dict <|? "userPSK"
+            <*> dict <| "account"
+            <*> dict <|| "livestreams"
+            <*> dict <|| "gemiststreams"
     }
 }

@@ -15,6 +15,16 @@
 	<key>userPSK</key>
 	<string>PSK</string>
 	<key>account</key>
-	<string>ACCOUNT</string>
+    <string>ACCOUNT</string>
+    <key>livestreams</key>
+    <array>
+        <string>streamID1</string>
+        <string>streamID2</string>
+        <string>streamID3</string>
+    </array>
+    <key>gemiststreams</key>
+    <array>
+        <string>streamID1</string>
+    </array>
 </dict>
 </plist>

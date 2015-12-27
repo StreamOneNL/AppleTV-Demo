@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Live-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="LiveViewController" customModule="AppleTV_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -16,78 +16,103 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="884" y="519" width="153" height="43"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="863" y="570" width="194" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dsl-lh-jrM">
+                                <rect key="frame" x="560" y="450" width="800" height="181"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYK-V4-zQW">
+                                        <rect key="frame" x="0.0" y="0.0" width="800" height="75"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qpl-f5-hdT">
+                                                <rect key="frame" x="227" y="0.0" width="346" height="75"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bezig met laden..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPE-eP-22f">
+                                                        <rect key="frame" x="0.0" y="0.0" width="306" height="75"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3Oz-ds-9ns">
+                                                        <rect key="frame" x="326" y="0.0" width="20" height="75"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="AMl-KD-WGy"/>
+                                            <constraint firstAttribute="bottom" secondItem="qpl-f5-hdT" secondAttribute="bottom" id="jyy-hI-Lmn"/>
+                                            <constraint firstItem="qpl-f5-hdT" firstAttribute="top" secondItem="yYK-V4-zQW" secondAttribute="top" id="wMV-GN-OtN"/>
+                                            <constraint firstItem="qpl-f5-hdT" firstAttribute="centerX" secondItem="yYK-V4-zQW" secondAttribute="centerX" id="yAi-w2-Ek4"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOL-0D-wha">
+                                        <rect key="frame" x="0.0" y="95" width="800" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Opnieuw laden"/>
+                                        <connections>
+                                            <action selector="reload:" destination="9pv-A4-QxB" eventType="primaryActionTriggered" id="sJh-9w-hMB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="800" id="NQY-tl-1zh"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="Dsl-lh-jrM" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="MUj-RY-PR9"/>
+                            <constraint firstItem="Dsl-lh-jrM" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="q0w-lp-TLk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Live" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="livestreamStackView" destination="Dsl-lh-jrM" id="bIn-u6-SOW"/>
+                        <outlet property="loadingView" destination="yYK-V4-zQW" id="j9u-Pg-DU0"/>
+                        <outlet property="reloadButton" destination="LOL-0D-wha" id="NgV-Fb-9nN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2246" y="-640"/>
         </scene>
-        <!--Second-->
-        <scene sceneID="wg7-f3-ORb">
+        <!--Items View Controller-->
+        <scene sceneID="LuQ-VF-E8B">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                <collectionViewController storyboardIdentifier="ItemsViewController" id="tz0-Bv-5ln" customClass="ItemsViewController" customModule="AppleTV_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GvP-sr-KaS">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="857" y="519" width="207" height="43"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="853" y="570" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T5x-uk-zqN">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="GqK-nU-yow">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="tz0-Bv-5ln" id="xQp-22-fAX"/>
+                            <outlet property="delegate" destination="tz0-Bv-5ln" id="Mue-Ka-dDd"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rYg-sC-0sk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="624"/>
+            <point key="canvasLocation" x="4220" y="-640"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="MainTabBarController" customModule="AppleTV_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="120"/>
@@ -96,7 +121,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -104,8 +128,4 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
-    </resources>
 </document>

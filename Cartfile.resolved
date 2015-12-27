@@ -1,0 +1,6 @@
+github "Alamofire/Alamofire" "3.1.4"
+github "thoughtbot/Argo" "v2.2.0"
+github "Soffes/Crypto" "v0.3.0"
+github "thoughtbot/Curry" "v1.4.0"
+github "nickygerritsen/JFCommon" "1.0.3"
+github "StreamOneNL/iOS-SDK" "3.1"

@@ -1,0 +1,383 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80CE3A291C3004C900C7705F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A281C3004C900C7705F /* AppDelegate.swift */; };
+		80CE3A2B1C3004C900C7705F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A2A1C3004C900C7705F /* FirstViewController.swift */; };
+		80CE3A2D1C3004C900C7705F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A2C1C3004C900C7705F /* SecondViewController.swift */; };
+		80CE3A301C3004C900C7705F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80CE3A2E1C3004C900C7705F /* Main.storyboard */; };
+		80CE3A321C3004CA00C7705F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80CE3A311C3004CA00C7705F /* Assets.xcassets */; };
+		80CE3A641C30063700C7705F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5D1C30063700C7705F /* Alamofire.framework */; };
+		80CE3A651C30063700C7705F /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5E1C30063700C7705F /* Argo.framework */; };
+		80CE3A661C30063700C7705F /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5F1C30063700C7705F /* CommonCrypto.framework */; };
+		80CE3A671C30063700C7705F /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A601C30063700C7705F /* Crypto.framework */; };
+		80CE3A681C30063700C7705F /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A611C30063700C7705F /* Curry.framework */; };
+		80CE3A691C30063700C7705F /* JFCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A621C30063700C7705F /* JFCommon.framework */; };
+		80CE3A6A1C30063700C7705F /* StreamOneSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A631C30063700C7705F /* StreamOneSDK.framework */; };
+		80CE3A6B1C30063C00C7705F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5D1C30063700C7705F /* Alamofire.framework */; };
+		80CE3A6C1C30063C00C7705F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5D1C30063700C7705F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80CE3A6D1C30063C00C7705F /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5E1C30063700C7705F /* Argo.framework */; };
+		80CE3A6E1C30063C00C7705F /* Argo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5E1C30063700C7705F /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80CE3A6F1C30063C00C7705F /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5F1C30063700C7705F /* CommonCrypto.framework */; };
+		80CE3A701C30063C00C7705F /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A5F1C30063700C7705F /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80CE3A711C30063C00C7705F /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A601C30063700C7705F /* Crypto.framework */; };
+		80CE3A721C30063C00C7705F /* Crypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A601C30063700C7705F /* Crypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80CE3A731C30063C00C7705F /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A611C30063700C7705F /* Curry.framework */; };
+		80CE3A741C30063C00C7705F /* Curry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A611C30063700C7705F /* Curry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80CE3A751C30063C00C7705F /* JFCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A621C30063700C7705F /* JFCommon.framework */; };
+		80CE3A761C30063C00C7705F /* JFCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A621C30063700C7705F /* JFCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80CE3A771C30063C00C7705F /* StreamOneSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A631C30063700C7705F /* StreamOneSDK.framework */; };
+		80CE3A781C30063C00C7705F /* StreamOneSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A631C30063700C7705F /* StreamOneSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80CE3A7C1C3006E200C7705F /* ApiSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80CE3A7B1C3006E200C7705F /* ApiSettings.plist */; };
+		80CE3A7E1C300A0B00C7705F /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE3A7D1C300A0B00C7705F /* ApiManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		80CE3A5C1C30062B00C7705F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				80CE3A781C30063C00C7705F /* StreamOneSDK.framework in Embed Frameworks */,
+				80CE3A6C1C30063C00C7705F /* Alamofire.framework in Embed Frameworks */,
+				80CE3A721C30063C00C7705F /* Crypto.framework in Embed Frameworks */,
+				80CE3A701C30063C00C7705F /* CommonCrypto.framework in Embed Frameworks */,
+				80CE3A761C30063C00C7705F /* JFCommon.framework in Embed Frameworks */,
+				80CE3A6E1C30063C00C7705F /* Argo.framework in Embed Frameworks */,
+				80CE3A741C30063C00C7705F /* Curry.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		80CE3A251C3004C900C7705F /* AppleTV-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppleTV-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80CE3A281C3004C900C7705F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		80CE3A2A1C3004C900C7705F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		80CE3A2C1C3004C900C7705F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		80CE3A2F1C3004C900C7705F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		80CE3A311C3004CA00C7705F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		80CE3A331C3004CA00C7705F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80CE3A5D1C30063700C7705F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/tvOS/Alamofire.framework; sourceTree = "<group>"; };
+		80CE3A5E1C30063700C7705F /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/tvOS/Argo.framework; sourceTree = "<group>"; };
+		80CE3A5F1C30063700C7705F /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/tvOS/CommonCrypto.framework; sourceTree = "<group>"; };
+		80CE3A601C30063700C7705F /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/tvOS/Crypto.framework; sourceTree = "<group>"; };
+		80CE3A611C30063700C7705F /* Curry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Curry.framework; path = Carthage/Build/tvOS/Curry.framework; sourceTree = "<group>"; };
+		80CE3A621C30063700C7705F /* JFCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JFCommon.framework; path = Carthage/Build/tvOS/JFCommon.framework; sourceTree = "<group>"; };
+		80CE3A631C30063700C7705F /* StreamOneSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StreamOneSDK.framework; path = Carthage/Build/tvOS/StreamOneSDK.framework; sourceTree = "<group>"; };
+		80CE3A7B1C3006E200C7705F /* ApiSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiSettings.plist; sourceTree = "<group>"; };
+		80CE3A7D1C300A0B00C7705F /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		80CE3A7F1C30139300C7705F /* ApiSettings.dist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiSettings.dist.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		80CE3A221C3004C900C7705F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80CE3A771C30063C00C7705F /* StreamOneSDK.framework in Frameworks */,
+				80CE3A641C30063700C7705F /* Alamofire.framework in Frameworks */,
+				80CE3A651C30063700C7705F /* Argo.framework in Frameworks */,
+				80CE3A6D1C30063C00C7705F /* Argo.framework in Frameworks */,
+				80CE3A751C30063C00C7705F /* JFCommon.framework in Frameworks */,
+				80CE3A711C30063C00C7705F /* Crypto.framework in Frameworks */,
+				80CE3A661C30063700C7705F /* CommonCrypto.framework in Frameworks */,
+				80CE3A671C30063700C7705F /* Crypto.framework in Frameworks */,
+				80CE3A681C30063700C7705F /* Curry.framework in Frameworks */,
+				80CE3A691C30063700C7705F /* JFCommon.framework in Frameworks */,
+				80CE3A731C30063C00C7705F /* Curry.framework in Frameworks */,
+				80CE3A6A1C30063700C7705F /* StreamOneSDK.framework in Frameworks */,
+				80CE3A6F1C30063C00C7705F /* CommonCrypto.framework in Frameworks */,
+				80CE3A6B1C30063C00C7705F /* Alamofire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		80CE3A1C1C3004C900C7705F = {
+			isa = PBXGroup;
+			children = (
+				80CE3A271C3004C900C7705F /* AppleTV-Demo */,
+				80CE3A791C30064000C7705F /* Linked Frameworks */,
+				80CE3A261C3004C900C7705F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		80CE3A261C3004C900C7705F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80CE3A251C3004C900C7705F /* AppleTV-Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		80CE3A271C3004C900C7705F /* AppleTV-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				80CE3A281C3004C900C7705F /* AppDelegate.swift */,
+				80CE3A2A1C3004C900C7705F /* FirstViewController.swift */,
+				80CE3A2C1C3004C900C7705F /* SecondViewController.swift */,
+				80CE3A2E1C3004C900C7705F /* Main.storyboard */,
+				80CE3A311C3004CA00C7705F /* Assets.xcassets */,
+				80CE3A331C3004CA00C7705F /* Info.plist */,
+				80CE3A7B1C3006E200C7705F /* ApiSettings.plist */,
+				80CE3A7F1C30139300C7705F /* ApiSettings.dist.plist */,
+				80CE3A7D1C300A0B00C7705F /* ApiManager.swift */,
+			);
+			path = "AppleTV-Demo";
+			sourceTree = "<group>";
+		};
+		80CE3A791C30064000C7705F /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80CE3A5D1C30063700C7705F /* Alamofire.framework */,
+				80CE3A5E1C30063700C7705F /* Argo.framework */,
+				80CE3A5F1C30063700C7705F /* CommonCrypto.framework */,
+				80CE3A601C30063700C7705F /* Crypto.framework */,
+				80CE3A611C30063700C7705F /* Curry.framework */,
+				80CE3A621C30063700C7705F /* JFCommon.framework */,
+				80CE3A631C30063700C7705F /* StreamOneSDK.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		80CE3A241C3004C900C7705F /* AppleTV-Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80CE3A361C3004CA00C7705F /* Build configuration list for PBXNativeTarget "AppleTV-Demo" */;
+			buildPhases = (
+				80CE3A211C3004C900C7705F /* Sources */,
+				80CE3A221C3004C900C7705F /* Frameworks */,
+				80CE3A231C3004C900C7705F /* Resources */,
+				80CE3A5C1C30062B00C7705F /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AppleTV-Demo";
+			productName = "AppleTV-Demo";
+			productReference = 80CE3A251C3004C900C7705F /* AppleTV-Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80CE3A1D1C3004C900C7705F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = StreamOne;
+				TargetAttributes = {
+					80CE3A241C3004C900C7705F = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 80CE3A201C3004C900C7705F /* Build configuration list for PBXProject "AppleTV-Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 80CE3A1C1C3004C900C7705F;
+			productRefGroup = 80CE3A261C3004C900C7705F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				80CE3A241C3004C900C7705F /* AppleTV-Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		80CE3A231C3004C900C7705F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80CE3A7C1C3006E200C7705F /* ApiSettings.plist in Resources */,
+				80CE3A321C3004CA00C7705F /* Assets.xcassets in Resources */,
+				80CE3A301C3004C900C7705F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		80CE3A211C3004C900C7705F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80CE3A2D1C3004C900C7705F /* SecondViewController.swift in Sources */,
+				80CE3A291C3004C900C7705F /* AppDelegate.swift in Sources */,
+				80CE3A7E1C300A0B00C7705F /* ApiManager.swift in Sources */,
+				80CE3A2B1C3004C900C7705F /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		80CE3A2E1C3004C900C7705F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80CE3A2F1C3004C900C7705F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		80CE3A341C3004CA00C7705F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		80CE3A351C3004CA00C7705F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		80CE3A371C3004CA00C7705F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = "AppleTV-Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.StreamOne.AppleTV-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		80CE3A381C3004CA00C7705F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = "AppleTV-Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.StreamOne.AppleTV-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		80CE3A201C3004C900C7705F /* Build configuration list for PBXProject "AppleTV-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80CE3A341C3004CA00C7705F /* Debug */,
+				80CE3A351C3004CA00C7705F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80CE3A361C3004CA00C7705F /* Build configuration list for PBXNativeTarget "AppleTV-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80CE3A371C3004CA00C7705F /* Debug */,
+				80CE3A381C3004CA00C7705F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 80CE3A1D1C3004C900C7705F /* Project object */;
+}

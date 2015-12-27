@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>apiUrl</key>
+	<string>https://api.streamonecloud.net/</string>
+	<key>useApplicationAuth</key>
+	<false/>
+	<key>applicationId</key>
+	<string>APPLICATION</string>
+	<key>applicationPSK</key>
+	<string>PSK</string>
+	<key>userId</key>
+	<string>USER</string>
+	<key>userPSK</key>
+	<string>PSK</string>
+	<key>account</key>
+	<string>ACCOUNT</string>
+</dict>
+</plist>

@@ -19,10 +19,6 @@ struct LiveStream {
     let thumbnail: String
     let hlsLink: String?
     let account: BasicAccount
-
-    static func loadPageWithArguments(arguments: [String: Argument]) {
-
-    }
 }
 
 extension LiveStream: Decodable {

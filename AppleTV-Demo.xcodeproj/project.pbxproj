@@ -17,6 +17,8 @@
 		800E83C41C30397C0004D22F /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A611C30063700C7705F /* Curry.framework */; };
 		800E83C51C30397C0004D22F /* JFCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A621C30063700C7705F /* JFCommon.framework */; };
 		800E83C61C30397C0004D22F /* StreamOneSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A631C30063700C7705F /* StreamOneSDK.framework */; };
+		8010C3DB1C41272B00DA25D4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8010C3DA1C41272B00DA25D4 /* Item.swift */; };
+		8010C3DE1C41288700DA25D4 /* TimeStringToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8010C3DD1C41288700DA25D4 /* TimeStringToDate.swift */; };
 		80B744FB1C3045FC00443D13 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B744FA1C3045FC00443D13 /* MainTabBarController.swift */; };
 		80B744FD1C30496300443D13 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B744FC1C30496300443D13 /* ItemsViewController.swift */; };
 		80B745031C304DAC00443D13 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B745021C304DAC00443D13 /* R.generated.swift */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		800E83B11C30306A0004D22F /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/tvOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		800E83BE1C30361D0004D22F /* AppleTV-Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AppleTV-Demo.entitlements"; sourceTree = "<group>"; };
+		8010C3DA1C41272B00DA25D4 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		8010C3DD1C41288700DA25D4 /* TimeStringToDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeStringToDate.swift; sourceTree = "<group>"; };
 		8048A7801C302DB6009B5F89 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8048A7811C302DB6009B5F89 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		80B744FA1C3045FC00443D13 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,14 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		8010C3DC1C41286F00DA25D4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8010C3DD1C41288700DA25D4 /* TimeStringToDate.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		80CE3A1C1C3004C900C7705F = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +124,7 @@
 		80CE3A271C3004C900C7705F /* AppleTV-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				8010C3DC1C41286F00DA25D4 /* Extensions */,
 				800E83C81C303AAA0004D22F /* Resources */,
 				80CE3A801C301F2500C7705F /* Objects */,
 				80CE3A281C3004C900C7705F /* AppDelegate.swift */,
@@ -149,6 +162,7 @@
 			children = (
 				80CE3A811C301F2D00C7705F /* LiveStream.swift */,
 				80CE3A831C301FAA00C7705F /* LiveStreamType.swift */,
+				8010C3DA1C41272B00DA25D4 /* Item.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -271,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8010C3DB1C41272B00DA25D4 /* Item.swift in Sources */,
 				80CE3A291C3004C900C7705F /* AppDelegate.swift in Sources */,
 				80CE3A821C301F2D00C7705F /* LiveStream.swift in Sources */,
 				80B745031C304DAC00443D13 /* R.generated.swift in Sources */,
@@ -278,6 +293,7 @@
 				80B744FB1C3045FC00443D13 /* MainTabBarController.swift in Sources */,
 				80CE3A7E1C300A0B00C7705F /* ApiManager.swift in Sources */,
 				80B744FD1C30496300443D13 /* ItemsViewController.swift in Sources */,
+				8010C3DE1C41288700DA25D4 /* TimeStringToDate.swift in Sources */,
 				80CE3A2B1C3004C900C7705F /* LiveViewController.swift in Sources */,
 				80CE3A871C30221200C7705F /* UIViewControllerExtensions.swift in Sources */,
 			);

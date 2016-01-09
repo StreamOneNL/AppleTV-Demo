@@ -159,6 +159,9 @@ class ApiManager {
         case Success([LiveStream])
     }
 
+    /**
+        Load livestreams. This will return the already loaded livestreams if possible
+    */
     static func loadLiveStreams(callback: (LiveStreamResult) -> ()) {
         if !livestreamseverloaded || livestreamError {
             livestreamError = false
@@ -178,6 +181,9 @@ class ApiManager {
         }
     }
 
+    /**
+        Process all stored livestream callbacks
+    */
     private static func processCallbacks(success: Bool) {
         livestreamError = !success
         livestreamsLoaded = true
@@ -192,6 +198,9 @@ class ApiManager {
         livestreamcallbacks = []
     }
 
+    /**
+        Load the livestreams from a given page
+    */
     private static func loadLiveStreamsFrom(idx: Int, callback: (LiveStreamResult) -> ()) {
         livestreamseverloaded = true
         do {

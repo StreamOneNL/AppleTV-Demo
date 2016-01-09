@@ -17,7 +17,6 @@ class LiveViewController: UIViewController {
     @IBOutlet weak var livestreamStackView: UIStackView!
     
     var livestreams: [LiveStream] = []
-    var alllivestreams: [LiveStream] = []
     var livestreamButtons: [UIButton] = []
 
     override func viewDidLoad() {
@@ -25,13 +24,57 @@ class LiveViewController: UIViewController {
 
         reloadButton.hidden = true
 
-        loadLiveStreams()
+        ApiManager.loadLiveStreams { result in
+            do {
+                try self.processLiveStreamResult(result)
+            } catch {
+                self.displayLoadingErrorAlert()
+            }
+        }
     }
 
     @IBAction func reload(sender: AnyObject) {
         loadingView.hidden = false
         reloadButton.hidden = true
-        loadLiveStreams()
+
+        for button in livestreamButtons {
+            button.removeFromSuperview()
+        }
+        livestreamButtons = []
+
+        ApiManager.loadLiveStreams { result in
+            do {
+                try self.processLiveStreamResult(result)
+            } catch {
+                self.displayLoadingErrorAlert()
+            }
+        }
+
+        if let mainVC = self.parentViewController as? MainTabBarController {
+            mainVC.loadLiveStreams()
+        }
+    }
+
+    func processLiveStreamResult(result: ApiManager.LiveStreamResult) throws {
+        switch result {
+        case .Error:
+            displayLoadingErrorAlert()
+        case .Success(let livestreams):
+            self.livestreams = try livestreams.filter { try ApiManager.livelivestreams().contains($0.id) }
+
+            self.loadingView.hidden = true
+            self.reloadButton.hidden = true
+
+            for livestream in self.livestreams {
+                let button = UIButton(type: UIButtonType.System)
+                button.setTitle(livestream.title, forState: .Normal)
+                button.addTarget(self, action: Selector("livestreamButtonTapped:"), forControlEvents: .PrimaryActionTriggered)
+                self.livestreamButtons.append(button)
+                self.livestreamStackView.addArrangedSubview(button)
+            }
+
+            self.livestreamStackView.layoutIfNeeded()
+        }
     }
 
     func livestreamButtonTapped(sender: UIButton) {
@@ -54,64 +97,6 @@ class LiveViewController: UIViewController {
         }
     }
 
-    private func loadLiveStreams() {
-        livestreams = []
-        alllivestreams = []
-        for button in livestreamButtons {
-            livestreamStackView.removeArrangedSubview(button)
-        }
-        livestreamButtons = []
-        loadLiveStreamsFrom(0)
-    }
-
-    private func loadLiveStreamsFrom(idx: Int) {
-        do {
-            let livestreamsToDisplay = try ApiManager.livestreams()
-            let request = try ApiManager.newRequest(command: "livestream", action: "view")
-            request
-                .setArgument("active", value: true)
-                .setArgument("orderfield", value: "name")
-                .execute { response in
-                    guard response.success else {
-                        self.displayLoadingErrorAlert()
-                        return
-                    }
-
-                    guard let livestreams: [LiveStream] = response.typedBody() else {
-                        self.displayLoadingErrorAlert()
-                        return
-                    }
-
-                    guard let count = response.header.allFields["count"] as? Int else {
-                        self.displayLoadingErrorAlert()
-                        return
-                    }
-
-                    self.loadingView.hidden = true
-
-                    for livestream in livestreams {
-                        self.alllivestreams.append(livestream)
-                        if !livestreamsToDisplay.contains(livestream.id) {
-                            continue
-                        }
-                        self.livestreams.append(livestream)
-                        let button = UIButton(type: UIButtonType.System)
-                        button.setTitle(livestream.title, forState: .Normal)
-                        button.addTarget(self, action: Selector("livestreamButtonTapped:"), forControlEvents: .PrimaryActionTriggered)
-                        self.livestreamButtons.append(button)
-                        self.livestreamStackView.addArrangedSubview(button)
-                    }
-
-                    self.livestreamStackView.layoutIfNeeded()
-
-                    if count > self.alllivestreams.count {
-                        self.loadLiveStreamsFrom(self.alllivestreams.count)
-                    }
-            }
-        } catch (_) {
-            displayLoadingErrorAlert()
-        }
-    }
 
     private func displayLoadingErrorAlert() {
         let title = "Kan live niet laden"

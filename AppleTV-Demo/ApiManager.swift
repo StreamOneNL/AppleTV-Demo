@@ -107,7 +107,10 @@ class ApiManager {
         return try actor.newRequest(command: command, action: action)
     }
 
-    static func livestreams() throws -> [String] {
+    /**
+        Get the livestream ID's from the ApiSettings file for live display
+    */
+    static func livelivestreams() throws -> [String] {
         guard let settings = sharedManager.settings else {
             throw ApiManager.Error.NotInitialized
         }
@@ -115,12 +118,119 @@ class ApiManager {
         return settings.livestreams
     }
 
+    /**
+        Get the livestream ID's from the ApiSettings file for gemist display
+     */
     static func gemiststreams() throws -> [String] {
         guard let settings = sharedManager.settings else {
             throw ApiManager.Error.NotInitialized
         }
 
         return settings.gemiststreams
+    }
+
+    /**
+        Whether a request to load livestreams has ever been started
+    */
+    private static var livestreamseverloaded = false
+
+    /**
+        All the livestreams currently loaded
+    */
+    private static var livestreams: [LiveStream] = []
+
+    /**
+        Whether loading the livestreams is completed
+    */
+    private static var livestreamsLoaded = false
+
+    /**
+        Whether there was an error loading livestreams
+    */
+    private static var livestreamError = false
+
+    /**
+        All registered callbacks for livestream loading
+    */
+    private static var livestreamcallbacks: [(LiveStreamResult) -> ()] = []
+
+    enum LiveStreamResult {
+        case Error
+        case Success([LiveStream])
+    }
+
+    static func loadLiveStreams(callback: (LiveStreamResult) -> ()) {
+        if !livestreamseverloaded || livestreamError {
+            livestreamError = false
+            livestreamsLoaded = false
+            livestreams = []
+            loadLiveStreamsFrom(0, callback: callback)
+        } else {
+            if livestreamsLoaded {
+                if livestreamError {
+                    callback(.Error)
+                } else {
+                    callback(.Success(livestreams))
+                }
+            } else {
+                livestreamcallbacks.append(callback)
+            }
+        }
+    }
+
+    private static func processCallbacks(success: Bool) {
+        livestreamError = !success
+        livestreamsLoaded = true
+        for callback in livestreamcallbacks {
+            if livestreamError {
+                callback(.Error)
+            } else {
+                callback(.Success(livestreams))
+            }
+        }
+
+        livestreamcallbacks = []
+    }
+
+    private static func loadLiveStreamsFrom(idx: Int, callback: (LiveStreamResult) -> ()) {
+        livestreamseverloaded = true
+        do {
+            let request = try ApiManager.newRequest(command: "livestream", action: "view")
+            request
+                .setArgument("active", value: true)
+                .setArgument("orderfield", value: "name")
+                .execute { response in
+                    guard response.success else {
+                        callback(.Error)
+                        processCallbacks(false)
+                        return
+                    }
+
+                    guard let livestreams: [LiveStream] = response.typedBody() else {
+                        callback(.Error)
+                        processCallbacks(false)
+                        return
+                    }
+
+                    guard let count = response.header.allFields["count"] as? Int else {
+                        callback(.Error)
+                        processCallbacks(false)
+                        return
+                    }
+
+                    self.livestreams.appendContentsOf(livestreams)
+
+                    if count > self.livestreams.count {
+                        self.loadLiveStreamsFrom(self.livestreams.count, callback: callback)
+                    } else {
+                        callback(.Success(self.livestreams))
+                        processCallbacks(true)
+                    }
+            }
+        } catch (_) {
+            callback(.Error)
+            processCallbacks(false)
+        }
     }
 }
 

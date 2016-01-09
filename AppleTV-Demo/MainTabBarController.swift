@@ -11,7 +11,6 @@ import UIKit
 class MainTabBarController: UITabBarController {
 
     var livestreams: [LiveStream] = []
-    var alllivestreams: [LiveStream] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,42 +18,22 @@ class MainTabBarController: UITabBarController {
         loadLiveStreams()
     }
 
-    private func loadLiveStreams() {
-        livestreams = []
-        alllivestreams = []
-        loadLiveStreamsFrom(0)
-    }
+    func loadLiveStreams() {
+        guard let firstVc = self.viewControllers?[0] else {
+            return
+        }
 
-    private func loadLiveStreamsFrom(idx: Int) {
-        do {
-            let livestreamsToDisplay = try ApiManager.gemiststreams()
-            let request = try ApiManager.newRequest(command: "livestream", action: "view")
-            request
-                .setArgument("active", value: true)
-                .setArgument("orderfield", value: "name")
-                .execute { response in
-                    guard response.success else {
-                        self.displayLoadingErrorAlert()
-                        return
-                    }
+        self.viewControllers = [firstVc]
 
-                    guard let livestreams: [LiveStream] = response.typedBody() else {
-                        self.displayLoadingErrorAlert()
-                        return
-                    }
+        ApiManager.loadLiveStreams { result in
+            switch result {
+            case .Error:
+                self.displayLoadingErrorAlert()
+            case .Success(let livestreams):
+                do {
+                    self.livestreams = try livestreams.filter { try ApiManager.gemiststreams().contains($0.id) }
 
-                    guard let count = response.header.allFields["count"] as? Int else {
-                        self.displayLoadingErrorAlert()
-                        return
-                    }
-
-                    for livestream in livestreams {
-                        self.alllivestreams.append(livestream)
-                        if !livestreamsToDisplay.contains(livestream.id) {
-                            continue
-                        }
-                        self.livestreams.append(livestream)
-
+                    for livestream in self.livestreams {
                         if let vc = R.storyboard.main.itemsViewController() {
                             vc.livestream = livestream
                             vc.tabBarItem.title = "Gemist voor \(livestream.title)"
@@ -62,20 +41,16 @@ class MainTabBarController: UITabBarController {
                             self.viewControllers?.append(vc)
                         }
                     }
-
-                    if count > self.alllivestreams.count {
-                        self.loadLiveStreamsFrom(self.alllivestreams.count)
-                    }
+                } catch {
+                    self.displayLoadingErrorAlert()
+                }
             }
-        } catch (_) {
-            displayLoadingErrorAlert()
         }
     }
 
     private func displayLoadingErrorAlert() {
         let title = "Kan live niet laden"
         let message = "Probeer het a.u.b. opnieuw"
-        displayOKAlert(title, message: message) {
-        }
+        displayOKAlert(title, message: message)
     }
 }

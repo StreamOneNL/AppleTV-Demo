@@ -19,6 +19,9 @@
 		800E83C61C30397C0004D22F /* StreamOneSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE3A631C30063700C7705F /* StreamOneSDK.framework */; };
 		8010C3DB1C41272B00DA25D4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8010C3DA1C41272B00DA25D4 /* Item.swift */; };
 		8010C3DE1C41288700DA25D4 /* TimeStringToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8010C3DD1C41288700DA25D4 /* TimeStringToDate.swift */; };
+		803A404D1C42C1A500AF76B2 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 803A404C1C42C1A500AF76B2 /* Rswift.framework */; };
+		803A404F1C42C3FE00AF76B2 /* ItemCellComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803A404E1C42C3FE00AF76B2 /* ItemCellComposer.swift */; };
+		806E698C1C42BC0800DE3A8B /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E698B1C42BC0800DE3A8B /* ItemCell.swift */; };
 		80B744FB1C3045FC00443D13 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B744FA1C3045FC00443D13 /* MainTabBarController.swift */; };
 		80B744FD1C30496300443D13 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B744FC1C30496300443D13 /* ItemsViewController.swift */; };
 		80B745031C304DAC00443D13 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B745021C304DAC00443D13 /* R.generated.swift */; };
@@ -38,8 +41,11 @@
 		800E83BE1C30361D0004D22F /* AppleTV-Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AppleTV-Demo.entitlements"; sourceTree = "<group>"; };
 		8010C3DA1C41272B00DA25D4 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8010C3DD1C41288700DA25D4 /* TimeStringToDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeStringToDate.swift; sourceTree = "<group>"; };
+		803A404C1C42C1A500AF76B2 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/tvOS/Rswift.framework; sourceTree = "<group>"; };
+		803A404E1C42C3FE00AF76B2 /* ItemCellComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCellComposer.swift; path = ../ItemCellComposer.swift; sourceTree = "<group>"; };
 		8048A7801C302DB6009B5F89 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8048A7811C302DB6009B5F89 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		806E698B1C42BC0800DE3A8B /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		80B744FA1C3045FC00443D13 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		80B744FC1C30496300443D13 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		80B745021C304DAC00443D13 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 				800E83BF1C30397C0004D22F /* AlamofireImage.framework in Frameworks */,
 				800E83C01C30397C0004D22F /* Alamofire.framework in Frameworks */,
 				800E83C11C30397C0004D22F /* Argo.framework in Frameworks */,
+				803A404D1C42C1A500AF76B2 /* Rswift.framework in Frameworks */,
 				800E83C21C30397C0004D22F /* CommonCrypto.framework in Frameworks */,
 				800E83C31C30397C0004D22F /* Crypto.framework in Frameworks */,
 				800E83C41C30397C0004D22F /* Curry.framework in Frameworks */,
@@ -136,6 +143,8 @@
 				80B744FA1C3045FC00443D13 /* MainTabBarController.swift */,
 				80B744FC1C30496300443D13 /* ItemsViewController.swift */,
 				80B745021C304DAC00443D13 /* R.generated.swift */,
+				806E698B1C42BC0800DE3A8B /* ItemCell.swift */,
+				803A404E1C42C3FE00AF76B2 /* ItemCellComposer.swift */,
 			);
 			path = "AppleTV-Demo";
 			sourceTree = "<group>";
@@ -143,6 +152,7 @@
 		80CE3A791C30064000C7705F /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				803A404C1C42C1A500AF76B2 /* Rswift.framework */,
 				800E83B11C30306A0004D22F /* AlamofireImage.framework */,
 				8048A7801C302DB6009B5F89 /* AVFoundation.framework */,
 				8048A7811C302DB6009B5F89 /* AVKit.framework */,
@@ -256,6 +266,7 @@
 				"$(SRCROOT)/Carthage/Build/tvOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/JFCommon.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/StreamOneSDK.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Rswift.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -290,9 +301,11 @@
 				80CE3A821C301F2D00C7705F /* LiveStream.swift in Sources */,
 				80B745031C304DAC00443D13 /* R.generated.swift in Sources */,
 				80CE3A841C301FAA00C7705F /* LiveStreamType.swift in Sources */,
+				803A404F1C42C3FE00AF76B2 /* ItemCellComposer.swift in Sources */,
 				80B744FB1C3045FC00443D13 /* MainTabBarController.swift in Sources */,
 				80CE3A7E1C300A0B00C7705F /* ApiManager.swift in Sources */,
 				80B744FD1C30496300443D13 /* ItemsViewController.swift in Sources */,
+				806E698C1C42BC0800DE3A8B /* ItemCell.swift in Sources */,
 				8010C3DE1C41288700DA25D4 /* TimeStringToDate.swift in Sources */,
 				80CE3A2B1C3004C900C7705F /* LiveViewController.swift in Sources */,
 				80CE3A871C30221200C7705F /* UIViewControllerExtensions.swift in Sources */,

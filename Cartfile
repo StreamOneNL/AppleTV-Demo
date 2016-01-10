@@ -1,2 +1,3 @@
 github "StreamOneNL/iOS-SDK" ~> 3.0
 github "Alamofire/AlamofireImage" ~> 2.0
+github "nickygerritsen/R.swift.library" "master"

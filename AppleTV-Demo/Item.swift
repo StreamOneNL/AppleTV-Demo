@@ -16,6 +16,7 @@ struct Item {
     let title: String
     let description: String?
     let duration: String
+    let dateCreated: String?
     let dateAired: String?
     let views: Int
     let thumbnail: String?
@@ -31,10 +32,17 @@ extension Item: Decodable {
             <*> json <|? "description"
             <*> json <| "duration"
         return i
+            <*> json <|? "datecreated"
             <*> json <|? "dateaired"
             <*> json <| "views"
             <*> json <|? "selectedthumbnailurl"
             <*> json <|? ["medialink", "hls"]
             <*> json <| "account"
     }
+}
+
+extension Item : Equatable {}
+
+func ==(lhs: Item, rhs: Item) -> Bool {
+    return lhs.id == rhs.id
 }

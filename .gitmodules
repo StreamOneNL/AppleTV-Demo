@@ -19,3 +19,5 @@
 [submodule "Carthage/Checkouts/AlamofireImage"]
 	path = Carthage/Checkouts/AlamofireImage
 	url = https://github.com/Alamofire/AlamofireImage.git
+[submodule "Carthage/Checkouts/R.swift.library"]
+	url = https://github.com/nickygerritsen/R.swift.library.git

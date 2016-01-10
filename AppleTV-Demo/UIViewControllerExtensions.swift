@@ -11,6 +11,7 @@ import AVFoundation
 import AVKit
 
 extension UIViewController {
+    /// Display an alert
     func displayAlert(title: String?, message: String?, actions: [UIAlertAction], completion: (() -> ())? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         for action in actions {
@@ -20,12 +21,14 @@ extension UIViewController {
         presentViewController(alert, animated: true, completion: completion)
     }
 
+    /// Display an alert with only an OK button
     func displayOKAlert(title: String?, message: String?, completion: (() -> ())? = nil) {
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         displayAlert(title, message: message, actions: [action], completion: completion)
     }
 
-    func displayMediaWithURL(url: String, title: String?, description: String?, thumbnail: UIImage?) {
+    /// Show a media player for the given url, title, description and thumbnail
+    func displayMediaWithURL(url: String, title: String?, description: String?, aired: NSDate? = nil, thumbnail: UIImage?) {
         guard let url = NSURL(string: url) else {
             return
         }
@@ -58,6 +61,16 @@ extension UIViewController {
             metadata.keySpace = AVMetadataKeySpaceCommon
             metadata.key = AVMetadataCommonKeyArtwork
             metadata.value = UIImagePNGRepresentation(thumbnail)
+
+            item.externalMetadata.append(metadata)
+        }
+
+        if let aired = aired {
+            let metadata = AVMutableMetadataItem()
+            metadata.locale = NSLocale.currentLocale()
+            metadata.keySpace = AVMetadataKeySpaceCommon
+            metadata.key = AVMetadataCommonKeyCreationDate
+            metadata.value = aired
 
             item.externalMetadata.append(metadata)
         }

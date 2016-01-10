@@ -14,28 +14,36 @@ import StreamOneSDK
 struct Item {
     let id: String
     let title: String
+    let type: ItemType
     let description: String?
     let duration: String
     let dateCreated: String?
     let dateAired: String?
     let views: Int
     let thumbnail: String?
+    let progressiveLink: String?
     let hlsLink: String?
     let account: BasicAccount
+
+    var playbackLink: String? {
+        return hlsLink ?? progressiveLink
+    }
 }
 
 extension Item: Decodable {
     static func decode(json: JSON) -> Decoded<Item> {
         let i = curry(Item.init)
+        return i
             <^> json <| "id"
             <*> json <| "title"
+            <*> json <| "type"
             <*> json <|? "description"
             <*> json <| "duration"
-        return i
             <*> json <|? "datecreated"
             <*> json <|? "dateaired"
             <*> json <| "views"
             <*> json <|? "selectedthumbnailurl"
+            <*> json <|? ["medialink", "progressive"]
             <*> json <|? ["medialink", "hls"]
             <*> json <| "account"
     }

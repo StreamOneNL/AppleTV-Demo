@@ -30,6 +30,7 @@ class ItemsViewController: UICollectionViewController {
             let itemsRequest = try ApiManager.newRequest(command: "item", action: "view")
             itemsRequest.setArgument("offset", value: self.items?.count ?? 0)
             itemsRequest.setArgument("order", value: "desc")
+            itemsRequest.setArgument("livestream", value: livestream.id)
             itemsRequest.execute { [weak self] response in
                 if response.valid {
                     if let extraItems: [Item] = response.typedBody() {
@@ -92,11 +93,10 @@ class ItemsViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        if let item = items?[indexPath.row] {
-//            let itemDetailViewController = R.storyboard.itemDetail.itemDetail!
-//            itemDetailViewController.item = item
-//            presentViewController(itemDetailViewController, animated: true, completion: nil)
-//        }
+        if let item = items?[indexPath.row], itemDetailViewController = R.storyboard.main.itemDetailViewController() {
+            itemDetailViewController.item = item
+            presentViewController(itemDetailViewController, animated: true, completion: nil)
+        }
     }
 
     private func displayLoadingErrorAlert() {

@@ -4,6 +4,14 @@ This repository contains a demo application which can be used by (local) broadca
 
 The application is intended to be a starting point for everyone wanting to create an Apple TV application. It does require some knowledge about tvOS development to modify it to your likings.
 
+## Screenshots
+
+[![Screenshot 1](screenshots/screenshot-1.png "Screenshot 1")](screenshots/screenshot-1.png)
+[![Screenshot 2](screenshots/screenshot-2.png "Screenshot 2")](screenshots/screenshot-2.png)
+[![Screenshot 3](screenshots/screenshot-3.png "Screenshot 3")](screenshots/screenshot-3.png)
+[![Screenshot 4](screenshots/screenshot-4.png "Screenshot 4")](screenshots/screenshot-4.png)
+[![Screenshot 5](screenshots/screenshot-5.png "Screenshot 5")](screenshots/screenshot-5.png)
+
 ## Getting started
 
 This project uses [Carthage](https://github.com/Carthage/Carthage) for dependency management. Make sure you have Carthage installed and then run the following command in a Terminal window in the directory where you cloned this repository:

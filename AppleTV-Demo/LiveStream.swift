@@ -34,3 +34,21 @@ extension LiveStream: Decodable {
             <*> json <| "account"
     }
 }
+
+extension LiveStream {
+    func toDictionary() -> [String: AnyObject] {
+        var result: [String: AnyObject] = [:]
+
+        result["id"] = id
+        result["title"] = title
+        result["description"] = description
+        result["type"] = ["label": type.label, "name": type.name]
+        result["thumbnail"] = thumbnail
+        if let hlsLink = hlsLink {
+            result["medialink"] = ["hls": hlsLink]
+        }
+        result["account"] = ["id": account.id, "name": account.name]
+
+        return result
+    }
+}

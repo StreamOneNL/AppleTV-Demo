@@ -49,6 +49,35 @@ extension Item: Decodable {
     }
 }
 
+extension Item {
+
+
+    func toDictionary() -> [String: AnyObject] {
+        var result: [String: AnyObject] = [:]
+
+        result["id"] = id
+        result["title"] = title
+        result["type"] = type.stringValue
+        result["description"] = description
+        result["duration"] = duration
+        result["datecreated"] = dateCreated
+        result["dateaired"] = dateAired
+        result["views"] = views
+        result["selectedthumbnailurl"] = thumbnail
+        var medialinks: [String: String] = [:]
+        if let hlsLink = hlsLink {
+            medialinks["hls"] = hlsLink
+        }
+        if let progressiveLink = progressiveLink {
+            medialinks["progressive"] = progressiveLink
+        }
+        result["medialink"] = medialinks
+        result["account"] = ["id": account.id, "name": account.name]
+
+        return result
+    }
+}
+
 extension Item : Equatable {}
 
 func ==(lhs: Item, rhs: Item) -> Bool {

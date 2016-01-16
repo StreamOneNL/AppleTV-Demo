@@ -10,6 +10,7 @@ import UIKit
 import Argo
 import Alamofire
 import AlamofireImage
+import TVServices
 
 class LiveViewController: UIViewController {
     @IBOutlet weak var loadingView: UIView!
@@ -24,6 +25,7 @@ class LiveViewController: UIViewController {
 
         reloadButton.hidden = true
 
+        // Load all the livestreams
         ApiManager.loadLiveStreams { result in
             do {
                 try self.processLiveStreamResult(result)
@@ -33,6 +35,7 @@ class LiveViewController: UIViewController {
         }
     }
 
+    /// Reload the livestreams
     @IBAction func reload(sender: AnyObject) {
         loadingView.hidden = false
         reloadButton.hidden = true
@@ -55,12 +58,20 @@ class LiveViewController: UIViewController {
         }
     }
 
+    /// Process livestream results
     func processLiveStreamResult(result: ApiManager.LiveStreamResult) throws {
         switch result {
         case .Error:
             displayLoadingErrorAlert()
         case .Success(let livestreams):
             self.livestreams = try livestreams.filter { try ApiManager.livelivestreams().contains($0.id) }
+
+            let defaults = NSUserDefaults(suiteName: Constants.AppGroup)
+            let livestreamsDictionary = self.livestreams.map { $0.toDictionary() }
+            defaults?.setObject(livestreamsDictionary, forKey: Constants.PrefLiveStreams)
+            defaults?.synchronize()
+            let notification = NSNotification(name: TVTopShelfItemsDidChangeNotification, object: nil)
+            NSNotificationCenter.defaultCenter().postNotification(notification)
 
             self.loadingView.hidden = true
             self.reloadButton.hidden = true
@@ -77,6 +88,7 @@ class LiveViewController: UIViewController {
         }
     }
 
+    /// User tapped a livestream button, play the stream
     func livestreamButtonTapped(sender: UIButton) {
         guard let idx = livestreamButtons.indexOf(sender) else {
             return
@@ -97,7 +109,7 @@ class LiveViewController: UIViewController {
         }
     }
 
-
+    // Display an alert that loading failed
     private func displayLoadingErrorAlert() {
         let title = "Kan live niet laden"
         let message = "Probeer het a.u.b. opnieuw"

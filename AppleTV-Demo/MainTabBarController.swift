@@ -41,6 +41,14 @@ class MainTabBarController: UITabBarController {
                             self.viewControllers?.append(vc)
                         }
                     }
+
+                    if try ApiManager.showaccounttab() {
+                        if let vc = R.storyboard.main.itemsViewController() {
+                            vc.tabBarItem.title = "Gemist"
+
+                            self.viewControllers?.append(vc)
+                        }
+                    }
                 } catch {
                     self.displayLoadingErrorAlert()
                 }

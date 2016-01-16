@@ -9,7 +9,7 @@
 import UIKit
 
 class ItemsViewController: UICollectionViewController {
-    var livestream: LiveStream!
+    var livestream: LiveStream?
 
     var items: [Item]?
     var totalItemCount: Int?
@@ -30,7 +30,9 @@ class ItemsViewController: UICollectionViewController {
             let itemsRequest = try ApiManager.newRequest(command: "item", action: "view")
             itemsRequest.setArgument("offset", value: self.items?.count ?? 0)
             itemsRequest.setArgument("order", value: "desc")
-            itemsRequest.setArgument("livestream", value: livestream.id)
+            if let livestream = livestream {
+                itemsRequest.setArgument("livestream", value: livestream.id)
+            }
             itemsRequest.execute { [weak self] response in
                 if response.valid {
                     if let extraItems: [Item] = response.typedBody() {

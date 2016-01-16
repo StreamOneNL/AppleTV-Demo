@@ -11,6 +11,15 @@ import AVFoundation
 import AVKit
 
 extension UIViewController {
+    /// Determine the frontmost view controller
+    public var frontMostViewController: UIViewController {
+        if let presentedViewController = presentedViewController {
+            return presentedViewController.frontMostViewController
+        } else {
+            return self
+        }
+    }
+
     /// Display an alert
     func displayAlert(title: String?, message: String?, actions: [UIAlertAction], completion: (() -> ())? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)

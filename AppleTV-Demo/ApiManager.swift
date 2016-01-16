@@ -10,6 +10,7 @@ import Foundation
 import StreamOneSDK
 import Argo
 import Curry
+import TVServices
 
 /**
     Singleton class used to communicate with the StreamOne SDK
@@ -41,6 +42,7 @@ class ApiManager {
         let account: String
         let livestreams: [String]
         let gemiststreams: [String]
+        let showaccounttab: Bool
     }
 
     /**
@@ -119,7 +121,7 @@ class ApiManager {
     }
 
     /**
-        Get the livestream ID's from the ApiSettings file for gemist display
+     Get the livestream ID's from the ApiSettings file for gemist display
      */
     static func gemiststreams() throws -> [String] {
         guard let settings = sharedManager.settings else {
@@ -127,6 +129,17 @@ class ApiManager {
         }
 
         return settings.gemiststreams
+    }
+
+    /**
+     Whether to show a tab with all items in the account
+     */
+    static func showaccounttab() throws -> Bool {
+        guard let settings = sharedManager.settings else {
+            throw ApiManager.Error.NotInitialized
+        }
+
+        return settings.showaccounttab
     }
 
     /**
@@ -157,6 +170,11 @@ class ApiManager {
     enum LiveStreamResult {
         case Error
         case Success([LiveStream])
+    }
+
+    enum ItemResult {
+        case Error
+        case Success(Item)
     }
 
     /**
@@ -208,6 +226,7 @@ class ApiManager {
             request
                 .setArgument("active", value: true)
                 .setArgument("orderfield", value: "name")
+                .setArgument("offset", value: idx)
                 .execute { response in
                     guard response.success else {
                         callback(.Error)
@@ -241,6 +260,65 @@ class ApiManager {
             processCallbacks(false)
         }
     }
+
+    /**
+     Load the recent items and store them in preferences for the top shelf
+     */
+    static func loadRecentItems() {
+        do {
+            let request = try ApiManager.newRequest(command: "item", action: "view")
+            request
+                .setArgument("orderfield", value: "created") // Change to "aired" if used
+                .setArgument("order", value: "desc")
+                .setArgument("limit", value: 10) // Show 10 items
+                .execute { response in
+                    guard response.success else {
+                        return
+                    }
+
+                    guard let items: [Item] = response.typedBody() else {
+                        return
+                    }
+
+                    let defaults = NSUserDefaults(suiteName: Constants.AppGroup)
+                    let itemsDictionary = items.map { $0.toDictionary() }
+                    defaults?.setObject(itemsDictionary, forKey: Constants.PrefLastItems)
+                    defaults?.synchronize()
+                    let notification = NSNotification(name: TVTopShelfItemsDidChangeNotification, object: nil)
+                    NSNotificationCenter.defaultCenter().postNotification(notification)
+            }
+        } catch (_) {
+        }
+    }
+
+    /**
+     Load a specific item
+     */
+    static func loadItemWithId(id: String, callback: ItemResult -> Void) {
+        do {
+            let request = try ApiManager.newRequest(command: "item", action: "view")
+            request
+                .setArgument("item", value: id)
+                .execute { response in
+                    guard response.success else {
+                        callback(.Error)
+                        return
+                    }
+
+                    guard let items: [Item] = response.typedBody() else {
+                        callback(.Error)
+                        return
+                    }
+
+                    if items.count == 1 {
+                        callback(.Success(items[0]))
+                    } else {
+                        callback(.Error)
+                    }
+            }
+        } catch (_) {
+        }
+    }
 }
 
 extension ApiManager.Error : CustomDebugStringConvertible {
@@ -269,5 +347,6 @@ extension ApiManager.Settings : Decodable {
             <*> dict <| "account"
             <*> dict <|| "livestreams"
             <*> dict <|| "gemiststreams"
+            <*> dict <| "showaccounttab"
     }
 }

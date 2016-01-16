@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        // Add image/jpg to AlamofireImage because the API returns that instead of image/jpeg
         Alamofire.Request.addAcceptableImageContentTypes(["image/jpg"])
 
         do {
@@ -26,31 +27,93 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("Error initializing API manager: \(e)")
         }
 
+        // Load recent items to show in the top shelf
+        ApiManager.loadRecentItems()
+
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        // Process links to this app. This can be the following:
+        // * s1-demo://details?item=ITEMID: Show details of this item
+        // * s1-demo://play?item=ITEMID: Play the item immediately
+        // * s1-demo://play?livestream=LIVESTREAMID: Play the livestream immediately
+
+        let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)
+        var item: String? = nil
+        var livestream: String? = nil
+        if let components = components {
+            if let queryItems = components.queryItems {
+                for queryItem in queryItems {
+                    if queryItem.name == "livestream" {
+                        livestream = queryItem.value
+                    } else if queryItem.name == "item" {
+                        item = queryItem.value
+                    }
+                }
+            }
+        }
+
+        if let livestream = livestream {
+            if url.host == "play" {
+                ApiManager.loadLiveStreams { result in
+                    switch result {
+                    case .Success(let livestreams):
+                        let foundStreams = livestreams.filter { $0.id == livestream }
+                        if let livestream = foundStreams.first {
+                            guard let hlsLink = livestream.hlsLink else {
+                                return
+                            }
+
+                            // Try to get the image
+                            Alamofire.request(.GET, livestream.thumbnail).responseImage { response in
+                                let image = response.result.value
+                                if let vc = self.window?.rootViewController?.frontMostViewController {
+                                    vc.displayMediaWithURL(hlsLink, title: livestream.title, description: livestream.description, thumbnail: image)
+                                }
+                            }
+                        }
+                    default:
+                        // Nothing, livestream fetching failed
+                        break
+                    }
+                }
+            }
+        } else if let item = item {
+            if url.host == "details" {
+                if let itemDetailViewController = R.storyboard.main.itemDetailViewController() {
+                    itemDetailViewController.itemId = item
+
+                    window?.rootViewController?.frontMostViewController.presentViewController(itemDetailViewController, animated: true, completion: nil)
+                }
+            } else if url.host == "play" {
+                ApiManager.loadItemWithId(item) { result in
+                    switch (result) {
+                    case .Success(let item):
+                        guard let playbackLink = item.playbackLink else { return }
+
+                        guard let vc = self.window?.rootViewController?.frontMostViewController else { return }
+
+                        if let thumbnail = item.thumbnail {
+                            // Try to get the image
+                            Alamofire.request(.GET, thumbnail).responseImage { response in
+                                let image = response.result.value
+
+                                vc.displayMediaWithURL(playbackLink, title: item.title, description: item.description, aired: item.dateAired?.apiDateStringToDate, thumbnail: image)
+                            }
+                        } else {
+                            vc.displayMediaWithURL(playbackLink, title: item.title, description: item.description, aired: item.dateAired?.apiDateStringToDate, thumbnail: nil)
+                        }
+                    default:
+                        // Nothing, item fetching failed
+                        break
+                    }
+                }
+            }
+            
+        }
+        
+        return false
     }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
 

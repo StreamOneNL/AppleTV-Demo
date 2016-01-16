@@ -26,4 +26,12 @@ enum ItemType: Decodable {
         default: return .typeMismatch("String", actual: json)
         }
     }
+
+    var stringValue: String {
+        switch self {
+        case .Video: return "video"
+        case .Audio: return "audio"
+        case .VideoOnly: return "videoonly"
+        }
+    }
 }

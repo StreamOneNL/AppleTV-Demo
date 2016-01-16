@@ -23,7 +23,6 @@ class ItemDetailViewController: UIViewController {
 
     var item: Item?
     var itemId: String?
-    var accountId: String?
 
     let queue = NSOperationQueue()
 
@@ -82,7 +81,6 @@ class ItemDetailViewController: UIViewController {
     func loadItemAndSetup() {
         do {
             let request = try ApiManager.newRequest(command: "item", action: "view")
-            request.account = accountId
             request.setArgument("item", value: itemId)
             request.execute { [weak self] response in
                 if response.valid {

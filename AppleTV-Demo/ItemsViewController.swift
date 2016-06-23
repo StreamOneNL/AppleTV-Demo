@@ -45,7 +45,7 @@ class ItemsViewController: UICollectionViewController {
                         if extraItems.count > 0 {
                             var indexPaths: [NSIndexPath] = []
                             if let start = self?.items?.count {
-                                for var i = 0; i < extraItems.count; i++ {
+                                for i in 0 ..< extraItems.count {
                                     indexPaths.append(NSIndexPath(forItem: start + i, inSection: 0))
                                 }
 

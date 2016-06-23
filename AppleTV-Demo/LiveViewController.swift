@@ -79,7 +79,7 @@ class LiveViewController: UIViewController {
             for livestream in self.livestreams {
                 let button = UIButton(type: UIButtonType.System)
                 button.setTitle(livestream.title, forState: .Normal)
-                button.addTarget(self, action: Selector("livestreamButtonTapped:"), forControlEvents: .PrimaryActionTriggered)
+                button.addTarget(self, action: #selector(LiveViewController.livestreamButtonTapped(_:)), forControlEvents: .PrimaryActionTriggered)
                 self.livestreamButtons.append(button)
                 self.livestreamStackView.addArrangedSubview(button)
             }

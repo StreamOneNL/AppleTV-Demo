@@ -480,7 +480,7 @@
 				);
 				INFOPLIST_FILE = "Top Shelf Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.StreamOne.AppleTV-Demo.Top-Shelf-Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.StreamOne.AppleTV-Demo.Top-Shelf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -500,7 +500,7 @@
 				);
 				INFOPLIST_FILE = "Top Shelf Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.StreamOne.AppleTV-Demo.Top-Shelf-Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.StreamOne.AppleTV-Demo.Top-Shelf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -646,6 +646,7 @@
 				8010A2DF1C4A4BF10036A627 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		80CE3A201C3004C900C7705F /* Build configuration list for PBXProject "AppleTV-Demo" */ = {
 			isa = XCConfigurationList;
